@@ -3,8 +3,13 @@ vim.lsp.enable({
 	"lua_ls"
 })
 
+vim.lsp.config('clangd', {
+  cmd = { 'clangd', "--compile-commands-dir=." },
+})
+
 vim.diagnostic.config({
 	virtual_lines = false,
+	virtual_text = true,
 	underline = true,
 	severity_sort = true,
 	float = {

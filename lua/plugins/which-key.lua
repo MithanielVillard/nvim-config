@@ -3,17 +3,11 @@ return {
         "folke/which-key.nvim",
         event = "VeryLazy",
         opts = {
-            preset = "helix"
+            preset = "helix",
+        	defaults = {
+  				{ "<leader>w", proxy = "<c-w>", group = "windows" }, -- proxy to window mappings
+        	},
         },
-        keys = {
-            {
-                "<leader>?",
-                function()
-                    require("which-key").show({global = false})
-                end,
-                desc = "Buffer Local Keymaps (which-key)"
-            }
-        }
     }
 }
 
