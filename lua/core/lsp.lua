@@ -1,11 +1,25 @@
-vim.lsp.enable({
-	"clangd",
-	"lua_ls"
+vim.lsp.config('lua_ls', {
+  settings = {
+    Lua = {
+      runtime = {
+        version = 'LuaJIT',
+      },
+      diagnostics = {
+        globals = {
+          'vim',
+          'require',
+        },
+      },
+	  workspace = {
+         library = vim.api.nvim_get_runtime_file("", true),
+    	},
+    },
+  },
 })
 
-vim.lsp.config('clangd', {
-  cmd = { 'clangd', "--compile-commands-dir=." },
-})
+vim.lsp.config['clangd'] = {
+  cmd = { 'clangd', '--compile-commands-dir=.' },
+}
 
 vim.diagnostic.config({
 	virtual_lines = false,

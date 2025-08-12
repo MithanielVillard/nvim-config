@@ -1,5 +1,6 @@
 return {
     "xzbdmw/colorful-menu.nvim",
+	event = "LspAttach",
     config = function()
         -- You don't need to set these options.
         require("colorful-menu").setup({

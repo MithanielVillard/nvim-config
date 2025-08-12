@@ -4,6 +4,7 @@ return {
     dependencies = {"rafamadriz/friendly-snippets"},
     -- use a release tag to download pre-built binaries
     version = "1.*",
+	event = "LspAttach",
     -- AND/OR build from source, requires nightly: https://rust-lang.github.io/rustup/concepts/channels.html#working-with-nightly-rust
     -- build = 'cargo build --release',
     -- If you use nix, you can build from source using latest nightly rust with:
@@ -26,7 +27,7 @@ return {
         -- See :h blink-cmp-config-keymap for defining your own keymap
         keymap = {
             preset = "enter",
-            ["<C-d>"] = {"show_documentation", "hide_documentation"}
+            ["<C-k>"] = {"show_documentation", "hide_documentation"}
         },
         appearance = {
             -- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
@@ -34,14 +35,18 @@ return {
             nerd_font_variant = "mono"
         },
         enabled = function(ctx)
+
+			local excludedTypes = {"string_content", "string", "comment", "line_comment", "comment_content", "block_comment"}
+
             local ts_utils = require("nvim-treesitter.ts_utils")
             local node = ts_utils.get_node_at_cursor(0, true)
-            if node ~= nil and (node:type() == "string_content" or node:type() == "string") then
+            if node ~= nil and vim.list_contains(excludedTypes, node:type()) then
                 return false
             else
                 return true
             end
         end,
+
         -- (Default) Only show the documentation popup when manually triggered
         completion = {
             documentation = {auto_show = false, window = {border = "rounded"}},
