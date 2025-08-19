@@ -8,6 +8,7 @@ vim.lsp.config('lua_ls', {
         globals = {
           'vim',
           'require',
+		  'Snacks'
         },
       },
 	  workspace = {

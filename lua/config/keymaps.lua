@@ -32,6 +32,8 @@ vim.keymap.set('n', '<leader>gr', '<Cmd>Telescope lsp_references', { desc = 'Go 
 
 vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { desc = 'Close terminal'})
 
+vim.keymap.set('n', '<leader>x', function() Snacks.bufdelete() end, { desc = 'Close current buffer'})
+
 vim.keymap.set({ "n", "x" }, "<leader>ca", function()
 	require("tiny-code-action").code_action()
 end, { noremap = true, silent = true, desc = 'Show code action' })
@@ -44,7 +46,6 @@ end, { desc = "Ouvrir le menu des actions" })
 -- Debugging --
 vim.keymap.set('n', "<leader>db", '<cmd>DapToggleBreakpoint<CR>', { desc = 'Toggle breakpoint'})
 vim.keymap.set('n', "<leader>dc", '<cmd>DapContinue<CR>', { desc = 'Continue debbugging'})
-
 
 -- Switching between cpp/h files --
 local function toggle_header_source_same_tab()
