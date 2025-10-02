@@ -36,6 +36,17 @@ return {
         version = "*",
         config = true
     },
+	{
+		"GustavEikaas/easy-dotnet.nvim",
+	 	dependencies = { "nvim-lua/plenary.nvim", 'nvim-telescope/telescope.nvim', },
+	 	config = function()
+	 	  require("easy-dotnet").setup({
+			  debugger = {
+				  bin_path = vim.env.MASON .. "\\bin\\netcoredbg.cmd"
+			  }
+		  })
+		end
+	},
     {
         "Shatur/neovim-session-manager",
         dependencies = {"nvim-lua/plenary.nvim"},
