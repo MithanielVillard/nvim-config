@@ -4,7 +4,7 @@ return {
     dependencies = {"rafamadriz/friendly-snippets"},
     -- use a release tag to download pre-built binaries
     version = "1.*",
-	event = "LspAttach",
+    event = "LspAttach",
     opts = {
         -- 'default' (recommended) for mappings similar to built-in completions (C-y to accept)
         -- 'super-tab' for mappings similar to vscode (tab to accept)
@@ -28,8 +28,14 @@ return {
             nerd_font_variant = "mono"
         },
         enabled = function(ctx)
-
-			local excludedTypes = {"string_content", "string", "comment", "line_comment", "comment_content", "block_comment"}
+            local excludedTypes = {
+                "string_content",
+                "string",
+                "comment",
+                "line_comment",
+                "comment_content",
+                "block_comment"
+            }
 
             local ts_utils = require("nvim-treesitter.ts_utils")
             local node = ts_utils.get_node_at_cursor(0, true)
@@ -39,10 +45,20 @@ return {
                 return true
             end
         end,
-
         -- (Default) Only show the documentation popup when manually triggered
         completion = {
-            documentation = {auto_show = false, window = {border = "rounded"}},
+            documentation = {
+                auto_show = false,
+                window = {border = "rounded"},
+                draw = function(opts)
+                    if opts.item and opts.item.documentation and opts.item.documentation.value then
+                        local out = require("pretty_hover.parser").parse(opts.item.documentation.value)
+                        opts.item.documentation.value = out:string()
+                    end
+
+                    opts.default_implementation(opts)
+                end
+            },
             menu = {
                 border = "rounded",
                 draw = {
@@ -76,4 +92,3 @@ return {
     },
     opts_extend = {"sources.default"}
 }
-

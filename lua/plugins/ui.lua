@@ -11,6 +11,11 @@ return {
             show_dirname = true
         }
     },
+	{
+		"Fildo7525/pretty_hover",
+		event = "LspAttach",
+		opts = {}
+	},
     {
         "folke/noice.nvim",
         event = "VeryLazy",
@@ -35,6 +40,9 @@ return {
     },
     {
         "sphamba/smear-cursor.nvim",
+		enabled = function ()
+			return vim.g.neovide == false;
+		end,
         opts = {
             stiffness = 0.8,
             trailing_stiffness = 0.5,
