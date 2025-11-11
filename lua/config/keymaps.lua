@@ -34,6 +34,7 @@ vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { desc = 'Close terminal'})
 
 vim.keymap.set('n', '<leader>x', function() Snacks.bufdelete() end, { desc = 'Close current buffer'})
 
+
 vim.keymap.set({ "n", "x" }, "<leader>ca", function()
 	require("tiny-code-action").code_action()
 end, { noremap = true, silent = true, desc = 'Show code action' })
@@ -41,7 +42,7 @@ end, { noremap = true, silent = true, desc = 'Show code action' })
 vim.keymap.set("n", "<M-CR>",
 function()
 	require("custom.actions").show_menu()
-end, { desc = "Ouvrir le menu des actions" })
+end, { desc = "Open context actions" })
 
 -- Debugging --
 vim.keymap.set('n', "<leader>db", '<cmd>DapToggleBreakpoint<CR>', { desc = 'Toggle breakpoint'})

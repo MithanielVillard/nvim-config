@@ -11,15 +11,19 @@ return {
 
             dap.listeners.before.attach.dapui_config = function()
                 dapui.open()
+				vim.cmd("Neotree close")
             end
             dap.listeners.before.launch.dapui_config = function()
                 dapui.open()
+				vim.cmd("Neotree close")
             end
             dap.listeners.before.event_terminated.dapui_config = function()
                 dapui.close()
+				vim.cmd("Neotree reveal")
             end
             dap.listeners.before.event_exited.dapui_config = function()
                 dapui.close()
+				vim.cmd("Neotree reveal")
             end
         end
     },

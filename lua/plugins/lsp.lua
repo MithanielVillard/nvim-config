@@ -10,15 +10,15 @@ return {
         "williamboman/mason-lspconfig.nvim",
         dependencies = {"neovim/nvim-lspconfig", "williamboman/mason.nvim"},
         config = function()
-			local lspconfig = require("lspconfig")
+            local lspconfig = require("lspconfig")
             require("mason-lspconfig").setup(
                 {
-                    ensure_installed = {"clangd", "lua_ls"}, -- tu peux ajouter plus de serveurs ici
+                    ensure_installed = {"clangd", "lua_ls"},
                     automatic_installation = true,
                     handlers = {
                         function(server_name)
                             require("lspconfig")[server_name].setup {}
-                        end,
+                        end
                     }
                 }
             )
@@ -57,4 +57,3 @@ return {
         }
     }
 }
-
