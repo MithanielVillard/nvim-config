@@ -17,6 +17,8 @@ vim.o.mousemoveevent = true
 
 vim.o.undofile = true
 
+vim.o.winborder = 'rounded'
+
 vim.o.cursorline = true
 vim.o.scrolloff = 10
 

@@ -15,8 +15,8 @@ vim.keymap.set("n", '<C-h>', '<cmd>BufferLineCyclePrev<CR>', { desc = 'Go to pre
 vim.keymap.set({ "n", "v" }, "<leader>y", [["+y]], { desc = 'Yank to clipboard'})
 vim.keymap.set("n", "<leader>v", [["+p]], { desc = 'Paste from clipboard' })
 
-vim.keymap.set("v", "<M>j", ":m '>+1<CR>gv=gv", { desc = 'Move line up'})
-vim.keymap.set("v", "<M>k", ":m '<-2<CR>gv=gv", { desc = 'Move line down'})
+vim.keymap.set("v", "<M-j>", ":m '>+1<CR>gv=gv", { desc = 'Move line up'})
+vim.keymap.set("v", "<M-k>", ":m '<-2<CR>gv=gv", { desc = 'Move line down'})
 
 -- paste over without losing buffer
 vim.keymap.set("x", "<leader>p", [["_dP]], { desc = 'Paste over'})
