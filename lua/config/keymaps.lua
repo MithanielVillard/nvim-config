@@ -34,6 +34,8 @@ vim.keymap.set('t', '<Esc>', [[<C-\><C-n>]], { desc = 'Close terminal'})
 
 vim.keymap.set('n', '<leader>x', function() Snacks.bufdelete() end, { desc = 'Close current buffer'})
 
+vim.keymap.set('n', '<leader>s', ':SearchBoxIncSearch<CR>')
+
 
 vim.keymap.set({ "n", "x" }, "<leader>ca", function()
 	require("tiny-code-action").code_action()

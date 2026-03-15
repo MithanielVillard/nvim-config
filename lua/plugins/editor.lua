@@ -1,3 +1,4 @@
+
 return {
     {
         "nvim-telescope/telescope.nvim",
@@ -31,11 +32,34 @@ return {
         event = "BufReadPost",
         config = true
     },
+	{
+		"Civitasv/cmake-tools.nvim",
+		lazy = true,
+        event = "BufReadPost",
+		opts = {
+			cmake_build_options = {"-j 14"},
+			  cmake_executor = { -- executor to use
+			    name = "toggleterm", -- name of the executor
+			    opts = {}, -- the options the executor will get, possible values depend on the executor type. See `default_opts` for possible values.
+			    default_opts = { -- a list of default and possible values for executors
+			      toggleterm = {
+			        direction = "float", -- 'vertical' | 'horizontal' | 'tab' | 'float'
+			        close_on_exit = false, -- whether close the terminal when exit
+			        auto_scroll = true, -- whether auto scroll to the bottom
+			        singleton = true, -- single instance, autocloses the opened one, if present
+			      },
+				}
+			}
+		}
+	},
     {
         "akinsho/toggleterm.nvim",
         version = "*",
         config = true
     },
+	{
+		"VonHeikemen/searchbox.nvim"
+	},
 	{
 		"GustavEikaas/easy-dotnet.nvim",
 	 	dependencies = { "nvim-lua/plenary.nvim", 'nvim-telescope/telescope.nvim', },

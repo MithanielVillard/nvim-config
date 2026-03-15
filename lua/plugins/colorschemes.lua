@@ -15,5 +15,13 @@ return {
    		     require('onenord').load()
    		 	vim.cmd([[colorscheme onenord]])
    		 end
+	},
+	{
+		'marko-cerovac/material.nvim',
+   		 lazy = false,
+   		 priority = 1000,
+   		 config = function()
+   		 	vim.cmd([[colorscheme material]])
+   		 end
 	}
 }

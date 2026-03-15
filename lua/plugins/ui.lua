@@ -63,7 +63,7 @@ return {
                 options = {
                     component_separators = {left = "", right = ""},
                     section_separators = {left = "", right = ""},
-                    theme = "onenord",
+                    theme = "material",
                 },
                 sections = {
                     lualine_a = {
